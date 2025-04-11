@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-qoh%d&ixub1*mkwl)a5mop$wf$lmvud=-=ox4w&-p!d-2t!(b!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['inai-hjej.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
+
 
 
 
