@@ -11,7 +11,7 @@ from .serializers import PlayerProgressSerializer
 
 class StartGameView(APIView):
 
-    def get(self, request, pk=None):
+    def post(self, request, pk=None):
         level = Level.objects.get(id=pk)
         questions = level.quizzes.all()
         quiz = Quiz.objects.filter(id=pk)
