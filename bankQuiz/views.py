@@ -7,7 +7,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import PlayerProgress, Option, Level, Quiz, QuizQuestion, Question
-from .serializers import PlayerProgressSerializer
+from .serializers import PlayerProgressSerializer, LevelSerializer, QuestionSerializer, QuizSerializer
+
 
 class StartGameView(APIView):
 
@@ -146,3 +147,21 @@ class ResultView(APIView):
             "points": progress.points,
             "quizPoint": progress.quizPoints,
         })
+
+class GetLevelView(APIView):
+    def get(self, request):
+        levels = Level.objects.all()
+        serializer = LevelSerializer(levels, many=True)
+        return Response(serializer.data)
+
+class GetQuestionView(APIView):
+    def get(self, request):
+        levels = Question.objects.all()
+        serializer = QuestionSerializer(levels, many=True)
+        return Response(serializer.data)
+
+class GetQuizView(APIView):
+    def get(self, request):
+        levels = Quiz.objects.all()
+        serializer = QuizSerializer(levels, many=True)
+        return Response(serializer.data)

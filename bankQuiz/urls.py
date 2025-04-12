@@ -3,7 +3,8 @@ from django.urls import path, include
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import AnswerOptionViewSet, StartGameView, GetOptions, GetQuizQuestionView, QuizQuestionViewSet, ResultView
+from .views import AnswerOptionViewSet, StartGameView, GetOptions, GetQuizQuestionView, QuizQuestionViewSet, ResultView, \
+    GetLevelView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -31,5 +32,6 @@ urlpatterns = [
     path('api/quiz-question/<int:pk>/', GetQuizQuestionView.as_view(), name='start_game'),
     path('api/make-answer/', AnswerOptionViewSet.as_view()),
     path('api/make-answer-question/', QuizQuestionViewSet.as_view()),
-    path('api/result/', ResultView.as_view())
+    path('api/result/', ResultView.as_view()),
+    path('get', GetLevelView.as_view(), name='get_options'),
 ]
