@@ -55,3 +55,5 @@ class PlayerProgress(models.Model):
         else:
             return "🔴 Импульсивный решатель"
 
+class Card(models.Model):
+    text = models.TextField()
