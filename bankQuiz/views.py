@@ -93,7 +93,6 @@ class AnswerOptionViewSet(APIView):
         progress.save()
 
         return Response({
-            "message": "Выбор применён",
             "added_points": option.points,
             "total_points": progress.points
         }
